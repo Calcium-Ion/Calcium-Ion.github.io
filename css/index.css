@@ -1644,6 +1644,7 @@ kbd {
   line-height: 1.7;
   color: var(--color-gray-800);
   background-color: var(--color-gray-200);
+  border-radius: 0.25rem;
 }
 .highlight pre,
 .highlight code {
@@ -1661,7 +1662,6 @@ kbd {
   color: var(--color-gray-600);
   background-color: var(--color-gray-250);
   zoom: 1;
-  padding: 0.1rem 0;
 }
 .highlight figcaption:before,
 .highlight figcaption:after {
@@ -1688,10 +1688,15 @@ kbd {
   margin: 0 0.6rem;
   color: var(--color-gray-600);
 }
+.highlight figcaption:not(.custom) + .table-container td.gutter,
+.highlight figcaption:not(.custom) + table td.gutter {
+  display: table-cell;
+}
 .highlight td.gutter {
   padding: 0.4rem 0.6rem;
   width: 2rem;
   background-color: var(--color-gray-250);
+  display: none;
 }
 .highlight td.gutter pre {
   text-align: right;
@@ -1700,7 +1705,7 @@ kbd {
   background-color: inherit;
 }
 .highlight td.code {
-  padding: 0.5rem 0.6rem;
+  padding: 0.5rem 0.75rem;
 }
 .highlight .marked {
   background-color: var(--color-gray-300);
