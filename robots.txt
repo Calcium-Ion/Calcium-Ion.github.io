@@ -1,6 +1,5 @@
 # robots.txt generated at http://tool.chinaz.com/robots/
 User-agent: *
-Crawl-delay: 60
 Disallow: /css/
 Disallow: /js/
 Sitemap: http://blog.caion.work/sitemap.xml
