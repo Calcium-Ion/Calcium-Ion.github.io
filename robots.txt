@@ -3,5 +3,5 @@ User-agent: *
 Crawl-delay: 60
 Disallow: /css/
 Disallow: /js/
-Sitemap: https://blog.caion.work/sitemap.xml
-Sitemap: https://blog.caion.work/baidusitemap.xml
+Sitemap: http://blog.caion.work/sitemap.xml
+Sitemap: http://blog.caion.work/baidusitemap.xml
