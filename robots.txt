@@ -1,9 +1,7 @@
+# robots.txt generated at http://tool.chinaz.com/robots/
 User-agent: *
-Allow: /
-Allow: /categories/
-Allow: /tags/
-Disallow: /assets/
-Disallow: /js/
+Crawl-delay: 60
 Disallow: /css/
-Sitemap: https://blog.caion.work/sitemap.xml
-Sitemap: https://blog.caion.work/baidusitemap.xml
+Disallow: /js/
+Sitemap: http://blog.caion.work/sitemap.xml
+Sitemap: http://blog.caion.work/baidusitemap.xml
