@@ -1,13 +1,9 @@
 User-agent: *
 Allow: /
-Allow: /home/
-Allow: /archives/
-Allow: /about/
-Disallow: /vendors/
+Allow: /categories/
+Allow: /tags/
+Disallow: /assets/
 Disallow: /js/
 Disallow: /css/
-Disallow: /fonts/
-Disallow: /vendors/
-Disallow: /fancybox/
 Sitemap: https://blog.caion.work/sitemap.xml
 Sitemap: https://blog.caion.work/baidusitemap.xml
