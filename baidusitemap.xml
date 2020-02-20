@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://blog.caion.work/manjaro_tim/</loc>
+    <loc>http://blog.caion.work/wxgame-version/</loc>
     <lastmod>2020-02-20</lastmod>
   </url>  <url>
-    <loc>http://blog.caion.work/manjaro_orgin/</loc>
+    <loc>http://blog.caion.work/manjaro-tim/</loc>
+    <lastmod>2020-02-20</lastmod>
+  </url>  <url>
+    <loc>http://blog.caion.work/manjaro-orgin/</loc>
     <lastmod>2020-02-20</lastmod>
   </url>
 </urlset>
