@@ -2055,6 +2055,17 @@ kbd {
 .footer-inner .external-link i {
   color: #fff;
 }
+.comments {
+  margin: 1.5rem 0 0;
+  width: 100%;
+  border-radius: 5px;
+  padding: 1rem 2rem;
+  background-color: var(--color-card);
+  float: left;
+}
+#lv-container {
+  width: 100%;
+}
 .copy-button {
   position: absolute;
   top: 0;
