@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.caion.work/friends/index.html</loc>
+    
+    <lastmod>2020-02-21T00:09:23.767Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.caion.work/wxgame-tween/</loc>
     
     <lastmod>2020-02-21T00:00:21.227Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>http://blog.caion.work/categories/index.html</loc>
     
     <lastmod>2020-02-20T22:42:54.892Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.caion.work/friends/index.html</loc>
-    
-    <lastmod>2020-02-20T22:39:02.461Z</lastmod>
     
   </url>
   
