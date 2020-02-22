@@ -2,16 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://blog.caion.work/unity-tankbattle/</loc>
+    <loc>http://blog.caion.work/minecraft-pos-to-chunk/</loc>
     
-    <lastmod>2020-02-22T15:48:07.846Z</lastmod>
+    <lastmod>2020-02-22T17:14:49.044Z</lastmod>
     
   </url>
   
   <url>
     <loc>http://blog.caion.work/manjaro-orgin/</loc>
     
-    <lastmod>2020-02-22T05:31:01.034Z</lastmod>
+    <lastmod>2020-02-22T16:06:38.578Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://blog.caion.work/unity-tankbattle/</loc>
+    
+    <lastmod>2020-02-22T15:48:07.846Z</lastmod>
     
   </url>
   
