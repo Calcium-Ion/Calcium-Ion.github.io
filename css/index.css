@@ -2581,43 +2581,20 @@ div#comments.comments.v {
   overflow: visible !important;
   counter-reset: avater;
 }
-.v .vwrap .vedit .vemojis {
-  width: 600px !important;
-  background-color: #fff !important;
-  border-radius: 5px !important;
-}
-.v .vwrap .vedit .vpreview {
-  width: 600px !important;
-  background-color: #fff !important;
-  border-radius: 5px !important;
-}
 .v .vbtn {
   background-color: #5f5f5f !important;
   color: #fff !important;
 }
 .v .vwrap .vedit .vctrl {
   text-align: left !important;
-}
-.v .vwrap .vedit .vctrl span {
-  background-color: #7f7f7f !important;
-  color: #fff !important;
-  border-radius: 3px !important;
-  padding: 3px !important;
-}
-.v .vwrap .vedit .vctrl {
-  padding: 0px !important;
-  margin: 0px !important;
-}
-.v .veditor {
-  min-height: 70px !important;
-  height: 70px !important;
+  padding: 0 !important;
+  margin: 0 !important;
 }
 .v .vlist .vquote .vcard {
   border-left: 1px solid #e4e6f1;
   margin-top: 5px;
 }
 .v .vlist .vcard .vhead .vsys {
-  display: none !important;
   background-color: #fff !important;
 }
 .v .vlist .vcard .vh .vmeta .vat {
@@ -2632,9 +2609,10 @@ div#comments.comments.v {
 }
 .v .vlist .vcard .vquote {
   counter-reset: avaters;
+  border: none !important;
 }
 .v .vlist .vcard p {
-  margin-bottom: 0px !important;
+  margin-bottom: 0 !important;
   color: #666;
   text-align: left;
   letter-spacing: 3px;
@@ -2654,7 +2632,7 @@ div#comments.comments.v {
   margin-top: 58px !important;
   font-size: 15px !important;
   font-weight: 500 !important;
-  padding-top: 0px !important;
+  padding-top: 0 !important;
 }
 .v .vlist .vcard {
   padding-top: 8px !important;
@@ -2669,9 +2647,27 @@ div#comments.comments.v {
   content: "点击查看全部" !important;
   font-weight: 400 !important;
 }
-.power {
-  display: none;
+.v .item3 .vinput {
+  border: none !important;
 }
-.v .vwrap .vedit .vctrl {
-  display: none !important;
+.v .item3 {
+  border-bottom: 1px solid #5f5f5f;
+}
+.v .vinfo .vcount .vnum {
+  font-size: 16px !important;
+}
+.v .vinfo .col {
+  width: 100% !important;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+.v .vlist .vquote .vcard {
+  border-left: 2px solid #7f7f7f !important;
+  padding-left: 10px;
+  margin-bottom: 10px;
+}
+.v .vlist .vcard .vh {
+  border-bottom: none !important;
+  padding-bottom: 0 !important;
 }
