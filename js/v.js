@@ -805,7 +805,7 @@ function() {
                   state = ' 访客';
                 }
                 p = f ? '<a class="vnick" rel="nofollow" href="' + f + '" target="_blank" >' + nickname + "</a>": '<span class="vnick">' + nickname + "</span>",
-                i.innerHTML = o + '\n            <div class="vh" rootid=' + (e.get("rid") || e.id) + '>\n                <div class="vhead">' + p + " " + l + '</div>\n                <div class="vmeta">\n                    <span class="vtime">['+state+'] ' + c(e.get("insertedAt") || e.createdAt, t.locale) + '</span>\n                    <span class="vat">' + t.locale.ctrl.reply + '</span>\n                </div>\n                <div class="vcontent">\n                    ' + b(e.get("comment")) + "\n                </div>\n            </div>";
+                i.innerHTML = o + '\n            <div class="vh" rootid=' + (e.get("rid") || e.id) + '>\n                <div class="vhead">' + p + " " + l + '</div>\n                <div class="vmeta">\n                    <span class="vtime">'+'['+state+'] ' + c(e.get("insertedAt") || e.createdAt, t.locale) + '</span>\n                    <span class="vat">' + t.locale.ctrl.reply + '</span>\n                </div>\n                <div class="vcontent">\n                    ' + b(e.get("comment")) + "\n                </div>\n            </div>";
                 for (var h = u.find(i, ".vat"), v = u.findAll(i, "a"), g = 0, x = v.length; g < x; g++) {
                     var w = v[g];
                     w && -1 == (u.attr(w, "class") || "").indexOf("at") && u.attr(w, {
