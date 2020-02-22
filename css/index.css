@@ -1470,12 +1470,6 @@ kbd {
 .post-meta-item--updatetime {
   color: #49b1f5;
 }
-.post-meta-item--wordcount {
-  color: var(--color-gray-700);
-}
-.post-meta-item--readtime {
-  color: #49b1f5;
-}
 .post-meta-item--visitors {
   color: #fc6423;
 }
