@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.caion.work/manjaro-orgin/</loc>
+    
+    <lastmod>2020-02-22T05:31:01.034Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.caion.work/wxgame-tween/</loc>
     
     <lastmod>2020-02-22T03:43:57.412Z</lastmod>
@@ -47,13 +54,6 @@
     <loc>http://blog.caion.work/manjaro-tim/</loc>
     
     <lastmod>2020-02-20T17:37:06.413Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://blog.caion.work/manjaro-orgin/</loc>
-    
-    <lastmod>2020-02-20T17:37:06.317Z</lastmod>
     
   </url>
   
