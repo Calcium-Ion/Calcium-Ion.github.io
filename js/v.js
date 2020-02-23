@@ -795,8 +795,7 @@ function() {
                     l = '<span class="vsys">' + s.browser + " " + s.version + "</span>" + " " + ('<span class="vsys">' + s.os + " " + s.osVersion + "</span>")
                 }
                 "*" === y && (l = '<a href="' + e.get("url") + '" class="vsys">' + e.get("url") + "</a>");
-                var p = "",
-                f = e.get("link") || "";
+                var p,f = e.get("link") || "";
                 var nickname = e.get("nick");
                 var state = '';
                 if (nickname === "CaIon"){

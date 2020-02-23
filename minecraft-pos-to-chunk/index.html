@@ -6,7 +6,7 @@
 <meta property="og:description" content="输入你的坐标，即可知道这个区块存在哪一个文件">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-02-22T18:59:29.000Z">
-<meta property="article:modified_time" content="2020-02-22T17:14:49.044Z">
+<meta property="article:modified_time" content="2020-02-23T08:17:35.572Z">
 <meta property="article:author" content="CaIon">
 <meta property="article:tag" content="minecraft我的世界">
 <meta name="twitter:card" content="summary"><meta name="keywords" content="CaIon, CaIon's Blog"><meta name="description" content="一个分享各种技术和踩坑记录的小博客,分享小游戏开发,archlinux使用中遇到的各种问题和解决方案,偶尔也用于记录生活"><title>MineCraft区块计算</title><link ref="canonical" href="http://blog.caion.work/minecraft-pos-to-chunk/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=1.7.0"><script>var Stun = window.Stun || {};
@@ -34,10 +34,10 @@ var CONFIG = {
 window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 4.2.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-btn fas fa-bars"></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__a" href="/"><i class="fas fa-home"></i>首页</a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__a" href="/categories/"><i class="fas fa-layer-group"></i>分类</a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__a" href="/tags/"><i class="fas fa-tags"></i>标签</a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__a" href="http://desktop.caion.work:25566/index.php?user/loginSubmit&amp;name=guest&amp;password=guest" target="_blank" rel="noopener"><i class="fas fa-tools"></i>小工具</a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__a" href="/friends/"><i class="fas fa-link"></i>友链</a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-info"><div class="header-info-inner"><div class="header-info-title">CaIon's Blog</div><div class="header-info-subtitle"></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-header-title">MineCraft区块计算</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2020-02-23</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2020-02-23</span></span><span class="post-meta-item post-meta-item--visitors"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value" id="busuanzi_value_page_pv"></span></span></div></header><div class="post-body"><p>输入你的坐标，即可知道这个区块存在哪一个文件</p>
 <a id="more"></a>
 
-    x:<input  id="x" type="text"  value=""/>
-    y:<input  id="y" type="text" value=""/>
-    z:<input  id="z" type="text"  value=""/>
-    <button type="button" id="submit" onclick = "submit()">点击计算</button>
+    x:<input  id="x" type="text"  value=""/><br>
+    y:<input  id="y" type="text" value=""/><br>
+    z:<input  id="z" type="text"  value=""/><br>
+    <button type="button" id="submit" onclick = "submit()">点击计算</button><br>
     区块所在文件:<input  id="res" type="text"  value=""/>
     <script>
     document.getElementById("submit").onclick = function(){
