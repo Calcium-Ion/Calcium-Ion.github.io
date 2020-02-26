@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.caion.work/photo/index.html</loc>
+    
+    <lastmod>2020-02-26T10:52:45.637Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.caion.work/minecraft-pos-to-chunk/</loc>
     
     <lastmod>2020-02-23T13:04:51.168Z</lastmod>
