@@ -1,0 +1,94 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/assets/logo.jpg?v=1.7.0" type="image/png" sizes="16x16"><link rel="icon" href="/assets/logo.jpg?v=1.7.0" type="image/png" sizes="32x32"><meta name="google-site-verification" content="nv_nLADGN9S1hkeiih825dQZ3AVLx_KgCddHJR3DctY"><meta name="msvalidate.01" content="CB828C6EAB472D462148403F00447900"><meta name="baidu-site-verification" content="duBcFP4gj1"><meta name="360-site-verification" content="d1ff9156b41f7f552dca52f16f841a98"><meta name="sogou_site_verification" content="hdUeb31kBV"><meta name="description" content="闲免费的frp服务太慢？为什么不自己搭建一个呢                     服务端搭建方法                 下载frp，下载并解压，因为是搭建服务端，可以删除掉frpc.exe以及frpc.ini 设置配置文件编辑frps.ini，建议不要使用windows自带的文本编辑器，打开可以看到里面默认是这样的12[common]bind_port &#x3D; 7000 bi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在windows环境下搭建frp服务器">
+<meta property="og:url" content="http://blog.caion.work/vps/frp/index.html">
+<meta property="og:site_name" content="CaIon&#39;s Blog">
+<meta property="og:description" content="闲免费的frp服务太慢？为什么不自己搭建一个呢                     服务端搭建方法                 下载frp，下载并解压，因为是搭建服务端，可以删除掉frpc.exe以及frpc.ini 设置配置文件编辑frps.ini，建议不要使用windows自带的文本编辑器，打开可以看到里面默认是这样的12[common]bind_port &#x3D; 7000 bi">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://github.com/fatedier/frp/releases">
+<meta property="og:image" content="https://github.com/fatedier/frp/blob/master/README.md">
+<meta property="article:published_time" content="2020-04-03T00:49:18.787Z">
+<meta property="article:modified_time" content="2020-04-03T01:21:49.214Z">
+<meta property="article:author" content="CaIon">
+<meta property="article:tag" content="frp">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/fatedier/frp/releases"><meta name="keywords" content="CaIon, CaIon's Blog"><meta name="description" content="一个分享各种技术和踩坑记录的小博客,分享小游戏开发,archlinux使用中遇到的各种问题和解决方案,偶尔也用于记录生活"><title>在windows环境下搭建frp服务器</title><link ref="canonical" href="http://blog.caion.work/vps/frp/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=1.7.0"><link rel="dns-prefetch" href="https://tajs.qq.com"><script>(function() {
+  var hm = document.createElement('script');
+  hm.src = 'https://tajs.qq.com/stats?sId=66521539';
+  hm.async = true;
+
+  if (false) {
+    hm.setAttribute('data-pjax', '');
+  }
+  var s = document.getElementsByTagName('script')[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();</script><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  post_widget: {"end_text":true},
+  night_mode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"simple","highlight":"ocean","word_wrap":false},
+  reward: false,
+  fancybox: false,
+  zoom_image: {"enable":true,"mask_color":"rgba(0,0,0,0.6)"},
+  gallery_waterfall: undefined,
+  lazyload: undefined,
+  pjax: undefined,
+  external_link: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copy_button":"复制","copy_success":"复制成功","copy_error":"复制失败"}
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 4.2.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-btn fas fa-bars"></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__a" href="/"><i class="fas fa-home"></i>首页</a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__a" href="/categories/"><i class="fas fa-layer-group"></i>分类</a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__a" href="/tags/"><i class="fas fa-tags"></i>标签</a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__a" href="/friends/"><i class="fas fa-link"></i>友链</a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__a" href="/photo/"><i class="fas fa-camera"></i>相册</a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-info"><div class="header-info-inner"><div class="header-info-title">CaIon's Blog</div><div class="header-info-subtitle"></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-header-title">在windows环境下搭建frp服务器</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2020-04-03</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2020-04-03</span></span><span class="post-meta-item post-meta-item--visitors"><span class="post-meta-item__icon"><i class="fas fa-eye"></i></span><span class="post-meta-item__info">阅读次数</span><span class="post-meta-item__value" id="busuanzi_value_page_pv"></span></span></div></header><div class="post-body"><p>闲免费的frp服务太慢？为什么不自己搭建一个呢</p>
+
+        <h3   id="服务端搭建方法" >
+          <span class="heading-link">服务端搭建方法</span>
+        </h3>
+      <ul>
+<li>下载frp<br><img src="https://github.com/fatedier/frp/releases" alt="frp项目地址">，下载并解压，因为是搭建服务端，可以删除掉frpc.exe以及frpc.ini</li>
+<li>设置配置文件<br>编辑frps.ini，建议不要使用windows自带的文本编辑器，打开可以看到里面默认是这样的<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">bind_port &#x3D; 7000</span><br></pre></td></tr></table></div></figure>
+bind_port是绑定的端口，建议不要使用默认的端口，下面是我修改后的样子<a id="more"></a>
+<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">bind_port &#x3D; 7001</span><br><span class="line">privilege_token &#x3D; CaIonFrp</span><br></pre></td></tr></table></div></figure>
+这里我的端口改成了6701，privilege_token是客户端链接到服务器的密钥，客户端必须和服务器填的一致，你也可以添加server_addr参数来指定服务端ip，例如<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">bind_port &#x3D; 7001</span><br><span class="line">privilege_token &#x3D; CaIonFrp</span><br><span class="line">server_addr &#x3D; 192.168.6.236</span><br></pre></td></tr></table></div></figure>
+如果没有设置server_addr参数，则默认服务器ip为0.0.0.0  更多设置可以到<img src="https://github.com/fatedier/frp/blob/master/README.md" alt="官方文档">中查看</li>
+<li>启动frp<br>在frps.exe所在的文件夹下按住shift加右键，点击在此处打开命令窗口(如果是Powershell窗口，则需要在打开后输入cmd并回车)，输入命令<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">frps -c frps.ini</span><br></pre></td></tr></table></div></figure>
+启动成功的话应该显示如下(我设置的ip和端口可能和你不一样)<figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[service.go:xxx]frps tcp listen on 192.168.6.236:7001</span><br><span class="line">[root.go:xxx] start frps success</span><br></pre></td></tr></table></div></figure>
+
+</li>
+</ul>
+</div><footer class="post-footer"><div class="post-end"><p>------ 本文结束，感觉您的阅读 ------</p></div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-author-name">本文作者: </span><span class="post-copyright-author-value"><a href="http://blog.caion.work">CaIon</a></span></div><div class="post-copyright-link"><span class="post-copyright-link-name">本文链接: </span><span class="post-copyright-link-value"><a href="http://blog.caion.work/vps/frp/">http://blog.caion.work/vps/frp/</a></span></div><div class="post-copyright-notice"><span class="post-copyright-notice-name">版权声明: </span><span class="post-copyright-notice-value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-tags"><span class="post-tags-item"><i class="post-tags-item__i fas fa-tag"></i><a class="post-tags-item__a" href="http://blog.caion.work/tags/frp/">frp</a></span></div><nav class="paginator"><div class="paginator-post"><div class="paginator-post-next"><a href="/minecraft-pos-to-chunk/"><span>MineCraft区块计算</span><i class="fas fa-angle-right"></i></a></div></div></nav></footer></div></div><div class="comments" id="comments"><div id="valine-container"></div></div></div><aside class="sidebar" id="sidebar"><div class="sidebar-inner"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#服务端搭建方法"><span class="toc-number">1.</span> <span class="toc-text">
+          服务端搭建方法
+        </span></a></li></ol></div></section><!-- ov = overview --><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/assets/logo.jpg" alt="avatar"></div><p class="sidebar-ov-author__p">hello world!</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state__a categories" href="/categories/"><div class="sidebar-ov-state__a--count">5</div><div class="sidebar-ov-state__a--name">分类</div></a><a class="sidebar-ov-state__a tags" href="/tags/"><div class="sidebar-ov-state__a--count">10</div><div class="sidebar-ov-state__a--name">标签</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span>你已阅读了 </span><span class="sidebar-reading-info-num">0</span></div><div class="sidebar-reading-line"></div></div></div></aside><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright &copy; 2020</span><span class="fas fa-heart footer-icon"></span><span>CaIon.</span></div><div><span>由 <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> 强力驱动</span><span> v4.2.0.</span><span class="separator">|</span><span>主题 - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v1.7.0.</span></div><div class="busuanzi"><span class="busuanzi-siteuv"><span class="busuanzi-siteuv__icon"><i class="fas fa-user"></i></span><span class="busuanzi-siteuv__info">访问人数</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_uv"></span></span><span class="separator">|</span><span class="busuanzi-sitepv"><span class="busuanzi-siteuv__icon"><i class="fas fa-eye"></i></span><span class="busuanzi-siteuv__info">浏览总量</span><span class="busuanzi-siteuv__value" id="busuanzi_value_site_pv"></span></span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="progress"></div></div><div class="back2top" id="back2top"><i class="back2top-icon fas fa-rocket"></i></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@latest/canvas-nest.min.js" color="0,0,0" opacity="1" count="99" zIndex="-1"></script><script src="https://cdn.jsdelivr.net/gh/sukkaw/busuanzi@latest/bsz.pure.mini.js" async></script><script src="https://cdn.jsdelivr.net/npm/leancloud-storage@latest/dist/av-min.js"></script><script src="/js/v.js"></script><script>function loadValine () {
+  var GUEST_INFO = ['nick', 'mail', 'link'];
+  var guest_info = 'nick,mail,link';
+
+  guest_info = guest_info.split(',').filter(function(item) {
+    return GUEST_INFO.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#valine-container',
+    appId: '4vHqj4WYWISNeo0dwYLa8eOL-gzGzoHsz',
+    appKey: '3AWplg5uuxpudLrvrfaoIdJS',
+    notify: true,
+    verify: true,
+    placeholder: '...ψ(。。)写点什么吧',
+    avatar: 'mp',
+    meta: guest_info,
+    pageSize: '10' || 10,
+    visitor: false,
+    recordIP: true,
+    lang: '' || 'zh-cn',
+    path: window.location.pathname
+  });
+}
+
+if (false) {
+  loadValine();
+} else {
+  window.addEventListener('DOMContentLoaded', loadValine, false);
+}</script><script src="/js/utils.js?v=1.7.0"></script><script src="/js/stun-boot.js?v=1.7.0"></script><script src="/js/scroll.js?v=1.7.0"></script><script src="/js/header.js?v=1.7.0"></script><script src="/js/sidebar.js?v=1.7.0"></script></body></html>

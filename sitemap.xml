@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.caion.work/vps/frp/</loc>
+    
+    <lastmod>2020-04-03T01:21:49.214Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.caion.work/photo/index.html</loc>
     
     <lastmod>2020-02-26T13:21:05.375Z</lastmod>
@@ -9,7 +16,7 @@
   </url>
   
   <url>
-    <loc>http://blog.caion.work/yunnan/</loc>
+    <loc>http://blog.caion.work/photos-yunnan/</loc>
     
     <lastmod>2020-02-26T13:17:50.687Z</lastmod>
     
