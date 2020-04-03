@@ -1,4 +1,4 @@
-http://blog.caion.work/minecraft/a_blog/
+http://blog.caion.work/minecraft/gui/
 http://blog.caion.work/vps/frp/
 http://blog.caion.work/minecraft-pos-to-chunk/
 http://blog.caion.work/unity-tankbattle/
