@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://blog.caion.work/minecraft/a_blog/</loc>
+    
+    <lastmod>2020-04-03T19:29:34.618Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://blog.caion.work/vps/frp/</loc>
     
     <lastmod>2020-04-03T18:16:46.751Z</lastmod>
