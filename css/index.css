@@ -606,6 +606,38 @@ kbd {
   -ms-transform: rotate(0);
   transform: rotate(0);
 }
+body {
+  position: relative;
+}
+body::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  height: 100vh;
+  z-index: -1;
+  background-color: rgba(0,0,0,0.4);
+}
+body::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  height: 100vh;
+  z-index: -2;
+  background: url("/assets/backgrounds/bg_2.jpg") no-repeat center/cover;
+}
+.nightmode body::before {
+  background-color: rgba(0,0,0,0.6);
+}
 .container {
   white-space: normal;
   word-wrap: break-word;
@@ -909,7 +941,7 @@ kbd {
   z-index: 1000;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0,0,0,0.2);
 }
 .header-info-inner {
   position: absolute;
