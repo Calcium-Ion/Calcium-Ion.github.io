@@ -5,13 +5,13 @@
 <meta property="og:site_name" content="CaIon&#39;s Blog">
 <meta property="og:description" content="我又来教你们如何榨干自己的服务器了d&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;(￣▽￣*)b">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://blog.caion.work/assete/vps/asf/stats.png">
+<meta property="og:image" content="http://blog.caion.work/assets/vps/asf/stats.png">
 <meta property="article:published_time" content="2020-04-05T18:26:33.013Z">
-<meta property="article:modified_time" content="2020-04-05T19:17:03.411Z">
+<meta property="article:modified_time" content="2020-04-05T19:18:48.970Z">
 <meta property="article:author" content="CaIon">
 <meta property="article:tag" content="steam">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://blog.caion.work/assete/vps/asf/stats.png"><meta name="keywords" content="CaIon, CaIon's Blog"><meta name="description" content="一个分享各种技术和踩坑记录的小博客,分享小游戏开发,archlinux使用中遇到的各种问题和解决方案,偶尔也用于记录生活"><title>windows下搭建asf挂卡服务器</title><link ref="canonical" href="http://blog.caion.work/vps/asf/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=1.7.0"><link rel="dns-prefetch" href="https://tajs.qq.com"><script>(function() {
+<meta name="twitter:image" content="http://blog.caion.work/assets/vps/asf/stats.png"><meta name="keywords" content="CaIon, CaIon's Blog"><meta name="description" content="一个分享各种技术和踩坑记录的小博客,分享小游戏开发,archlinux使用中遇到的各种问题和解决方案,偶尔也用于记录生活"><title>windows下搭建asf挂卡服务器</title><link ref="canonical" href="http://blog.caion.work/vps/asf/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=1.7.0"><link rel="dns-prefetch" href="https://tajs.qq.com"><script>(function() {
   var hm = document.createElement('script');
   hm.src = 'https://tajs.qq.com/stats?sId=66521539';
   hm.async = true;
@@ -64,7 +64,7 @@ window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 4.2.0"></he
 <p>其他参数</p>
 <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;SteamLogin&quot;: &quot;CaIon&quot;,</span><br><span class="line">  &quot;SteamPassword&quot;: &quot;steam密码&quot;,</span><br><span class="line">  &quot;Enabled&quot;: true,</span><br><span class="line">  &quot;AcceptGifts&quot;: true, &#x2F;&#x2F;自动接收礼物</span><br><span class="line">  &quot;FarmOffline&quot;: false, &#x2F;&#x2F;离线挂卡，挂卡时会显示你此游戏在线，开启这项就不会显示游戏在线</span><br><span class="line">  &quot;CustomGamePlayedWhileIdle&quot;: &quot;挂卡中&quot;, &#x2F;&#x2F;挂卡时显示的状态</span><br><span class="line">  &quot;Blacklist&quot;: [ &#x2F;&#x2F;不挂卡的游戏appid，在下文有说明</span><br><span class="line">      730</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
 <p>关于游戏的appid：进入游戏的商店页面，右键复制url，会得到类似于如下链接（以csgo为例）<br><span class="external-link"><a   href="https://store.steampowered.com/app/730/CounterStrike_Global_Offensive/"  target="_blank" rel="noopener">https://store.steampowered.com/app/730/CounterStrike_Global_Offensive/</a><i class="fas fa-external-link-alt"></i></span><br>730就是我们需要的appid</p>
-<p>挂卡状态的显示效果:<br><img src="/assete/vps/asf/stats.png" alt=""></p>
+<p>挂卡状态的显示效果:<br><img src="/assets/vps/asf/stats.png" alt=""></p>
 
         <h3   id="开启asf" >
           <span class="heading-link">开启asf</span>
