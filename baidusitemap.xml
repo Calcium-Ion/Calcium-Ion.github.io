@@ -1,22 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://blog.caion.work/daily/5-4/</loc>
+    <loc>https://blog.caion.work/vps/asf/</loc>
+    <lastmod>2020-05-06</lastmod>
+  </url>  <url>
+    <loc>https://blog.caion.work/vps/frp/</loc>
+    <lastmod>2020-05-06</lastmod>
+  </url>  <url>
+    <loc>https://blog.caion.work/wxgame-version/</loc>
+    <lastmod>2020-05-06</lastmod>
+  </url>  <url>
+    <loc>https://blog.caion.work/wxgame-tween/</loc>
+    <lastmod>2020-05-06</lastmod>
+  </url>  <url>
+    <loc>https://blog.caion.work/unity-tankbattle/</loc>
     <lastmod>2020-05-06</lastmod>
   </url>  <url>
     <loc>https://blog.caion.work/minecraft/gui/</loc>
-    <lastmod>2020-04-13</lastmod>
+    <lastmod>2020-05-06</lastmod>
+  </url>  <url>
+    <loc>https://blog.caion.work/daily/5-4/</loc>
+    <lastmod>2020-05-06</lastmod>
   </url>  <url>
     <loc>https://blog.caion.work/daily/gugugu/</loc>
     <lastmod>2020-04-13</lastmod>
   </url>  <url>
-    <loc>https://blog.caion.work/vps/asf/</loc>
-    <lastmod>2020-04-05</lastmod>
-  </url>  <url>
     <loc>https://blog.caion.work/minecraft-pos-to-chunk/</loc>
-    <lastmod>2020-04-03</lastmod>
-  </url>  <url>
-    <loc>https://blog.caion.work/vps/frp/</loc>
     <lastmod>2020-04-03</lastmod>
   </url>  <url>
     <loc>https://blog.caion.work/photos/yunnan/</loc>
@@ -24,15 +33,6 @@
   </url>  <url>
     <loc>https://blog.caion.work/manjaro-orgin/</loc>
     <lastmod>2020-02-22</lastmod>
-  </url>  <url>
-    <loc>https://blog.caion.work/unity-tankbattle/</loc>
-    <lastmod>2020-02-22</lastmod>
-  </url>  <url>
-    <loc>https://blog.caion.work/wxgame-tween/</loc>
-    <lastmod>2020-02-22</lastmod>
-  </url>  <url>
-    <loc>https://blog.caion.work/wxgame-version/</loc>
-    <lastmod>2020-02-21</lastmod>
   </url>  <url>
     <loc>https://blog.caion.work/manjaro-tim/</loc>
     <lastmod>2020-02-20</lastmod>
