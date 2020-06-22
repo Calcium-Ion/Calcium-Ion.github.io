@@ -1,0 +1,83 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black"><link rel="icon" href="/assets/logo.jpg?v=1.7.0" type="image/png" sizes="16x16"><link rel="icon" href="/assets/logo.jpg?v=1.7.0" type="image/png" sizes="32x32"><meta name="description" content="假定有场景A和B，当从场景A切换到B时，我希望他有一个淡出淡入的效果，该如何实现呢？">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Egret实现场景加载淡出淡入效果">
+<meta property="og:url" content="http://blog.caion.work/2020/02/22/wxgame-tween/index.html">
+<meta property="og:site_name" content="CaIon&#39;s Blog">
+<meta property="og:description" content="假定有场景A和B，当从场景A切换到B时，我希望他有一个淡出淡入的效果，该如何实现呢？">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-02-21T16:00:00.000Z">
+<meta property="article:modified_time" content="2020-05-06T13:26:07.386Z">
+<meta property="article:author" content="CaIon">
+<meta property="article:tag" content="Egret白鹭引擎">
+<meta property="article:tag" content="微信小程序">
+<meta name="twitter:card" content="summary"><meta name="keywords" content="CaIon, CaIon's Blog"><meta name="description" content="钙离子的博客"><title>Egret实现场景加载淡出淡入效果</title><link ref="canonical" href="http://blog.caion.work/2020/02/22/wxgame-tween/"><link rel="dns-prefetch" href="https://cdn.jsdelivr.net"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.12.1/css/all.min.css" type="text/css"><link rel="stylesheet" href="/css/index.css?v=1.7.0"><script>var Stun = window.Stun || {};
+var CONFIG = {
+  root: '/',
+  algolia: undefined,
+  fontIcon: {"prompt":{"success":"fas fa-check-circle","info":"fas fa-arrow-circle-right","warning":"fas fa-exclamation-circle","error":"fas fa-times-circle"},"copyBtn":"fas fa-copy"},
+  sidebar: {"offsetTop":"20px","tocMaxDepth":6},
+  header: {"enable":true,"showOnPost":true,"scrollDownIcon":false},
+  post_widget: {"end_text":true},
+  night_mode: {"enable":true},
+  back2top: {"enable":true},
+  codeblock: {"style":"simple","highlight":"light","word_wrap":false},
+  reward: false,
+  fancybox: false,
+  zoom_image: {"enable":true,"mask_color":"rgba(0,0,0,0.6)"},
+  gallery_waterfall: undefined,
+  lazyload: undefined,
+  pjax: undefined,
+  external_link: {"icon":{"enable":true,"name":"fas fa-external-link-alt"}},
+  shortcuts: undefined,
+  prompt: {"copy_button":"复制","copy_success":"复制成功","copy_error":"复制失败"}
+};
+
+window.CONFIG = CONFIG;</script><meta name="generator" content="Hexo 4.2.0"></head><body><div class="container" id="container"><header class="header" id="header"><div class="header-inner"><nav class="header-nav header-nav--fixed"><div class="header-nav-inner"><div class="header-nav-btn fas fa-bars"></div><div class="header-nav-menu"><div class="header-nav-menu-item"><a class="header-nav-menu-item__a" href="/"><i class="fas fa-home"></i>首页</a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__a" href="/categories/"><i class="fas fa-layer-group"></i>分类</a></div><div class="header-nav-menu-item"><a class="header-nav-menu-item__a" href="/tags/"><i class="fas fa-tags"></i>标签</a></div></div><div class="header-nav-mode"><div class="mode"><div class="mode-track"><span class="mode-track-moon"></span><span class="mode-track-sun"></span></div><div class="mode-thumb"></div></div></div></div></nav><div class="header-info"><div class="header-info-inner"><div class="header-info-title">CaIon's Blog</div><div class="header-info-subtitle"></div></div></div></div></header><main class="main" id="main"><div class="main-inner"><div class="content-wrap" id="content-wrap"><div class="content" id="content"><div id="is-post"></div><div class="post"><header class="post-header"><h1 class="post-header-title">Egret实现场景加载淡出淡入效果</h1><div class="post-meta"><span class="post-meta-item post-meta-item--createtime"><span class="post-meta-item__icon"><i class="far fa-calendar-plus"></i></span><span class="post-meta-item__info">发表于</span><span class="post-meta-item__value">2020-02-22</span></span><span class="post-meta-item post-meta-item--updatetime"><span class="post-meta-item__icon"><i class="far fa-calendar-check"></i></span><span class="post-meta-item__info">更新于</span><span class="post-meta-item__value">2020-05-06</span></span></div></header><div class="post-body"><p>假定有场景A和B，当从场景A切换到B时，我希望他有一个淡出淡入的效果，该如何实现呢？</p>
+<a id="more"></a>
+<ul>
+<li>本篇文章的代码仅供参考，你可以自行修改以达到你想要的效果</li>
+</ul>
+<p>博主使用tween(缓动动画)来实现，<span class="external-link"><a   href="http://developer.egret.com/cn/article/index/id/576"  target="_blank" rel="noopener">官方教程</a><i class="fas fa-external-link-alt"></i></span></p>
+
+        <h4   id="准备工作" >
+          <span class="heading-link">准备工作</span>
+        </h4>
+      <p>你需要一张纯黑的图片，并把它<span class="external-link"><a   href="http://developer.egret.com/cn/article/index/id/119"  target="_blank" rel="noopener">加入你的资源文件中</a><i class="fas fa-external-link-alt"></i></span></p>
+
+        <h4   id="切出场景（场景A）" >
+          <span class="heading-link">切出场景（场景A）</span>
+        </h4>
+      <p>A场景切出的代码</p>
+<figure class="highlight typescript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//new一个Bitmap对象</span></span><br><span class="line"><span class="keyword">let</span> image:egret.Bitmap = <span class="keyword">new</span> egret.Bitmap(RES.getRes(<span class="string">"black_jpg"</span>)); <span class="comment">//这里的black_jpg是准备好的黑色图片</span></span><br><span class="line"><span class="comment">//把图片设置为透明</span></span><br><span class="line">image.alpha = <span class="number">0</span>; </span><br><span class="line"><span class="comment">//把图片加入场景</span></span><br><span class="line"><span class="keyword">this</span>.addChild(image);</span><br><span class="line"><span class="comment">//让图片铺满屏幕</span></span><br><span class="line"><span class="keyword">this</span>.width = <span class="keyword">this</span>.stage.stageWidth;</span><br><span class="line"><span class="keyword">this</span>.height = <span class="keyword">this</span>.stage.stageHeight;</span><br><span class="line"><span class="comment">//获取缓动对象</span></span><br><span class="line"><span class="keyword">let</span> tween = egret.Tween.get(image);</span><br><span class="line"><span class="comment">//把图片的alpha从0缓动到1，时间为500毫秒</span></span><br><span class="line">tween.to(&#123;alpha:<span class="number">1</span>&#125;,<span class="number">500</span>).call(<span class="keyword">this</span>.changeScene); <span class="comment">//changeScene是缓动结束后调用的函数</span></span><br></pre></td></tr></table></div></figure>
+<p>alpha是图片的透明度，设置为0是完全透明，设置为1是不透明，alpha的值默认为1，使用tween使纯黑图片的alpha从0缓动到1即可实现简单的淡出效果</p>
+
+        <h4   id="切入场景（场景B）" >
+          <span class="heading-link">切入场景（场景B）</span>
+        </h4>
+      <p>B场景切入的代码</p>
+<figure class="highlight typescript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//new一个Bitmap对象</span></span><br><span class="line"><span class="keyword">let</span> image:egret.Bitmap = <span class="keyword">new</span> egret.Bitmap(RES.getRes(<span class="string">"black_jpg"</span>)); <span class="comment">//这里的black_jpg是准备好的黑色图片</span></span><br><span class="line"><span class="comment">//把图片加入场景</span></span><br><span class="line"><span class="keyword">this</span>.addChild(image);</span><br><span class="line"><span class="comment">//让图片铺满屏幕</span></span><br><span class="line"><span class="keyword">this</span>.width = <span class="keyword">this</span>.stage.stageWidth;</span><br><span class="line"><span class="keyword">this</span>.height = <span class="keyword">this</span>.stage.stageHeight;</span><br><span class="line"><span class="comment">//获取缓动对象</span></span><br><span class="line"><span class="keyword">let</span> tween = egret.Tween.get(image);</span><br><span class="line"><span class="comment">//把图片的alpha从1缓动到0，时间为500毫秒</span></span><br><span class="line">tween.to(&#123;alpha:<span class="number">0</span>&#125;,<span class="number">500</span>).call(<span class="keyword">this</span>.loaded); <span class="comment">//loaded是缓动结束后调用的函数</span></span><br></pre></td></tr></table></div></figure>
+
+        <h4   id="注意事项" >
+          <span class="heading-link">注意事项</span>
+        </h4>
+      <p>在场景B加载完成后，一定要把图片从场景中移除，你可以在缓动完成后调用的函数中移除图片，例如</p>
+<figure class="highlight typescript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">loaded(image:egret.Bitmap)&#123;</span><br><span class="line">   <span class="keyword">this</span>.removeChild(image); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></div></figure>
+<p><strong>注意，tween缓动动画是异步执行的，请不要在tween.to({alpha:0},500).call(this.loaded)的后一行移除图片，否则你将看不到你想要的效果</strong><br>缓动完成后调用的函数则需要这样写，其中bind的作用是将image作为参数传递</p>
+<figure class="highlight typescript"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//把图片的alpha从1缓动到0，时间为500毫秒</span></span><br><span class="line">tween.to(&#123;alpha:<span class="number">0</span>&#125;,<span class="number">500</span>).call(<span class="keyword">this</span>.loaded.bind(image));</span><br></pre></td></tr></table></div></figure>
+
+        <h4   id="构建项目" >
+          <span class="heading-link">构建项目</span>
+        </h4>
+      <figure class="highlight plain"><div class="table-container"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">egret build</span><br></pre></td></tr></table></div></figure>
+
+</div><footer class="post-footer"><div class="post-end"><p>------ 本文结束，感谢您的阅读 ------</p></div><div class="post-copyright"><div class="post-copyright-author"><span class="post-copyright-author-name">本文作者: </span><span class="post-copyright-author-value"><a href="http://blog.caion.work">CaIon</a></span></div><div class="post-copyright-link"><span class="post-copyright-link-name">本文链接: </span><span class="post-copyright-link-value"><a href="http://blog.caion.work/2020/02/22/wxgame-tween/">http://blog.caion.work/2020/02/22/wxgame-tween/</a></span></div><div class="post-copyright-notice"><span class="post-copyright-notice-name">版权声明: </span><span class="post-copyright-notice-value">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" rel="external nofollow" target="_blank">BY-NC-SA</a> 许可协议。转载请注明出处！</span></div></div><div class="post-tags"><span class="post-tags-item"><i class="post-tags-item__i fas fa-tag"></i><a class="post-tags-item__a" href="http://blog.caion.work/tags/Egret%E7%99%BD%E9%B9%AD%E5%BC%95%E6%93%8E/">Egret白鹭引擎</a></span><span class="post-tags-item"><i class="post-tags-item__i fas fa-tag"></i><a class="post-tags-item__a" href="http://blog.caion.work/tags/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F/">微信小程序</a></span></div><nav class="paginator"><div class="paginator-post"><div class="paginator-post-prev"><a href="/2020/02/22/wxgame-version/"><i class="fas fa-angle-left"></i><span>Egret发布微信小游戏:Cannot set property ' isCanvas' of undefined</span></a></div><div class="paginator-post-next"><a href="/2020/02/21/unity-tankbattle/"><span>分享一个unity3d的坦克大战项目</span><i class="fas fa-angle-right"></i></a></div></div></nav></footer></div></div></div><aside class="sidebar" id="sidebar"><div class="sidebar-inner"><div class="sidebar-nav"><span class="sidebar-nav-toc current">文章目录</span><span class="sidebar-nav-ov">站点概览</span></div><section class="sidebar-toc"><div><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#准备工作"><span class="toc-number">1.</span> <span class="toc-text">
+          准备工作
+        </span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#切出场景（场景A）"><span class="toc-number">2.</span> <span class="toc-text">
+          切出场景（场景A）
+        </span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#切入场景（场景B）"><span class="toc-number">3.</span> <span class="toc-text">
+          切入场景（场景B）
+        </span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#注意事项"><span class="toc-number">4.</span> <span class="toc-text">
+          注意事项
+        </span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#构建项目"><span class="toc-number">5.</span> <span class="toc-text">
+          构建项目
+        </span></a></li></ol></div></section><!-- ov = overview --><section class="sidebar-ov hide"><div class="sidebar-ov-author"><div class="sidebar-ov-author__avatar"><img class="sidebar-ov-author__avatar_img" src="/assets/logo.jpg" alt="avatar"></div><p class="sidebar-ov-author__p">hello world!</p></div><div class="sidebar-ov-state"><a class="sidebar-ov-state__a categories" href="/categories/"><div class="sidebar-ov-state__a--count">6</div><div class="sidebar-ov-state__a--name">分类</div></a><a class="sidebar-ov-state__a tags" href="/tags/"><div class="sidebar-ov-state__a--count">11</div><div class="sidebar-ov-state__a--name">标签</div></a></div><div class="sidebar-ov-cc"><a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.en" target="_blank" rel="noopener" data-popover="知识共享" data-popover-pos="up"><img src="/images/cc-by-nc-sa.svg"></a></div></section><div class="sidebar-reading"><div class="sidebar-reading-info"><span>你已阅读了 </span><span class="sidebar-reading-info-num">0</span></div><div class="sidebar-reading-line"></div></div></div></aside><div class="clearfix"></div></div></main><footer class="footer" id="footer"><div class="footer-inner"><div><span>Copyright &copy; 2020</span><span class="fas fa-heart footer-icon"></span><span>CaIon.</span></div><div><span>由 <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a> 强力驱动</span><span> v4.2.0.</span><span class="separator">|</span><span>主题 - <a href="https://github.com/liuyib/hexo-theme-stun/" title="Stun" target="_blank" rel="noopener">Stun</a></span><span> v1.7.0.</span></div></div></footer><div class="loading-bar" id="loading-bar"><div class="progress"></div></div><div class="back2top" id="back2top"><i class="back2top-icon fas fa-rocket"></i></div></div><script src="https://cdn.jsdelivr.net/npm/jquery@v3.4.1/dist/jquery.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.min.js"></script><script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.2/velocity.ui.min.js"></script><script src="/js/utils.js?v=1.7.0"></script><script src="/js/stun-boot.js?v=1.7.0"></script><script src="/js/scroll.js?v=1.7.0"></script><script src="/js/header.js?v=1.7.0"></script><script src="/js/sidebar.js?v=1.7.0"></script></body></html>
